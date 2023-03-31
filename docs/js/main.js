@@ -15,17 +15,7 @@
   \************************/
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
-eval("const burger = __webpack_require__(/*! ./module/burger.js */ \"./src/js/module/burger.js\");\nconst anim = __webpack_require__(/*! ./module/anim.js */ \"./src/js/module/anim.js\");\nconst scroll = __webpack_require__(/*! ./module/scroll.js */ \"./src/js/module/scroll.js\");\n\n//# sourceURL=webpack://WorkDirectory/./src/js/main.js?");
-
-/***/ }),
-
-/***/ "./src/js/module/anim.js":
-/*!*******************************!*\
-  !*** ./src/js/module/anim.js ***!
-  \*******************************/
-/***/ (function() {
-
-eval("AOS.init();\n\nAOS.init({\n\t// Global settings:\n\tdisable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function\n\tstartEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on\n\tinitClassName: 'aos-init', // class applied after initialization\n\tanimatedClassName: 'aos-animate', // class applied on animation\n\tuseClassNames: false, // if true, will add content of `data-aos` as classes on scroll\n\tdisableMutationObserver: false, // disables automatic mutations' detections (advanced)\n\tdebounceDelay: 50, // the delay on debounce used while resizing window (advanced)\n\tthrottleDelay: 99, // the delay on throttle used while scrolling the page (advanced)\n\n\n\t// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:\n\toffset: 120, // offset (in px) from the original trigger point\n\tdelay: 0, // values from 0 to 3000, with step 50ms\n\tduration: 400, // values from 0 to 3000, with step 50ms\n\teasing: 'ease', // default easing for AOS animations\n\tonce: true, // whether animation should happen only once - while scrolling down\n\tmirror: false, // whether elements should animate out while scrolling past them\n\tanchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation\n\n});\n\n//# sourceURL=webpack://WorkDirectory/./src/js/module/anim.js?");
+eval("const burger = __webpack_require__(/*! ./module/burger.js */ \"./src/js/module/burger.js\");\nconst scroll = __webpack_require__(/*! ./module/scroll.js */ \"./src/js/module/scroll.js\");\nconst slider = __webpack_require__(/*! ./module/slider.js */ \"./src/js/module/slider.js\");\n\n//# sourceURL=webpack://WorkDirectory/./src/js/main.js?");
 
 /***/ }),
 
@@ -46,6 +36,16 @@ eval("const burgerTrigger = document.querySelectorAll(\".burger__trigger\");\nco
 /***/ (function() {
 
 eval("const smoothLinks = document.querySelectorAll('a[href^=\"#\"]');\nfor (let smoothLink of smoothLinks) {\n\tsmoothLink.addEventListener('click', function (e) {\n\t\te.preventDefault();\n\t\tconst id = smoothLink.getAttribute('href');\n\n\t\tdocument.querySelector(id).scrollIntoView({\n\t\t\tbehavior: 'smooth',\n\t\t\tblock: 'start'\n\t\t});\n\t});\n};\n\n//# sourceURL=webpack://WorkDirectory/./src/js/module/scroll.js?");
+
+/***/ }),
+
+/***/ "./src/js/module/slider.js":
+/*!*********************************!*\
+  !*** ./src/js/module/slider.js ***!
+  \*********************************/
+/***/ (function() {
+
+eval("let slides = document.querySelectorAll('.slide-single') // Получение коллекции слайдов\r\nlet slider = []; // Иницилизация массива \r\nlet slide = document.querySelector('.slide'); // Получение всего блока слайдера\r\nlet imageSize = slide.offsetWidth;\r\nfor(let i=0; i < slides.length; i++){\r\n    slider[i] = slides[i];\r\n    slider[i].remove();\r\n} \r\nlet step = 0; // переменная для контроля текущего слайда\r\nlet offset = 0; // переменная в которой хранится значение, на которое происходит смещение изображения\r\nlet timeInterval =  5000; // интервал смены авто смены слайдов\r\n\r\n\r\n// Функция сброса интервала, после нажатия кнопки пользователем.\r\nlet autoSlideInterval = setInterval(left, timeInterval); // Функция запускающая автоперелистывание слайдов\r\nfunction resetInterval(){\r\n    clearInterval(autoSlideInterval); // останавливаем текущий интервал\r\n    autoSlideInterval = setInterval(left, timeInterval); // задаем новый интервал\r\n}\r\n\r\n\r\n// Функция отрисовки слайдов\r\nfunction draw(){\r\n    let slide = document.createElement('div') \r\n    slide = slider[step];\r\n    slide.classList.add('slide-single');\r\n    slide.style.left = offset*imageSize + 'px';\r\n    document.querySelector('.slide').appendChild(slide);\r\n    step = (step + 1 == slider.length) ? 0 : step + 1;\r\n    offset = 1;\r\n}\r\n\r\n// Функция для перелистывания слайда\r\nfunction left() {\r\n    slide.onclick = null;\r\n\r\n\r\n    let slides2 = document.querySelectorAll('.slide-single');\r\n    let offset2 = 0;\r\n    for(let i=0; i < slides2.length; i++){\r\n        slides2[i].style.left = offset2*imageSize - imageSize + 'px';\r\n        offset2++;\r\n    }\r\n    setTimeout(function(){\r\n        slides2[0].remove();\r\n        draw(); \r\n        slide.onclick = left;\r\n    },1000)\r\n    resetInterval();\r\n  \r\n    \r\n}\r\n\r\n// Событие, отслеживающе изменения экрана, и подгоняющая размер слайда под размер экрана.\r\nwindow.addEventListener('resize', function(){\r\nimageSize = slide.offsetWidth\r\nlet slidesResize = document.querySelectorAll('.slide-single');\r\nslidesResize[0].style.left = 0 + 'px';\r\nslidesResize[1].style.left = imageSize + 'px';\r\nresetInterval();\r\n});\r\n\r\ndraw(); \r\ndraw();  \r\nslide.onclick = left;\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://WorkDirectory/./src/js/module/slider.js?");
 
 /***/ })
 

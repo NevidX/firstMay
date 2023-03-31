@@ -6,9 +6,32 @@ $md4: 319.98px;
 //====<BRAKEPOINTS>=======
 
 // Fonts =================
+@font-face {
+	font-family: 'AdverGhotic';
+	src: url(/font/advergothic-normal.ttf) format('ttf'), url(/font/advergothic-normal.woff) format('woff');
+	font-weight: 400;
+  }
+@font-face {
+	font-family: 'AdverGhotic';
+	src: url(/font/advergothic-italic.ttf) format('ttf'), url(/font/advergothic-italic.woff) format('woff');
+	font-style: italic;
+	font-weight: 400;
+  }
+$AdverGhotic: AdverGhotic;
+
+.title{
+	font-family: $AdverGhotic;
+}
+
+.sub-title{
+	font-family: Arial, Helvetica, sans-serif;
+}
 
 
 // Fonts =================
+
+
+
 .wrapper{
 	overflow: hidden;
 }
@@ -18,7 +41,7 @@ html{
 // Container ==============
 .container{
 	margin: 0 auto;
-	max-width: 1300px;
+	max-width: 1200px;
 	padding: 0 5px 0 5px;
 }
 // Container ==============

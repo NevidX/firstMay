@@ -1,4 +1,4 @@
-$burgerBody: #3bd58d;
+$burgerBody: #fff500;
 $burgerTriggerColor: black;
 
 
@@ -10,7 +10,7 @@ $burgerTriggerColor: black;
     background: $burgerBody;
     overflow: hidden;
     width: 100%;
-    transition: ease 1s;
+    transition: ease 0.3s;
     position: fixed;
     z-index: 6;
     top: 0;
