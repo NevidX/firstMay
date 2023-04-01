@@ -61,8 +61,7 @@ function left() {
 window.addEventListener('resize', function(){
 imageSize = slide.offsetWidth
 let slidesResize = document.querySelectorAll('.slide-single');
-slidesResize[0].style.left = 0 + 'px';
-slidesResize[1].style.left = imageSize + 'px';
+slidesResize[2].style.left = imageSize + 'px';
 resetInterval();
 });
 
