@@ -1,3 +1,9 @@
+// TODO:
+// 
+// Прогресс бар сделать попробовать с анимацией на главном слайдере
+// 
+
+
 let slides = document.querySelectorAll('.slide-single') // Получение коллекции слайдов
 let slider = []; // Иницилизация массива 
 let slide = document.querySelector('.slide'); // Получение всего блока слайдера

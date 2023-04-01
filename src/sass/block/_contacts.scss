@@ -1,0 +1,35 @@
+.contacts {
+   margin: 150px auto;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width:$md1) {
+        flex-direction: column;
+        margin: 20px auto;
+    }
+}
+.contacts-text-area {
+    max-width: 434px;
+    margin-right: 135px;
+}
+.contacts-block {
+    
+}
+.contacts-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+.sub-title {
+    line-height: 31px;
+}
+.contacts-sub-title {
+}
+.contacts-map {
+    width: 650px;
+    height: 400px;
+    @media (max-width:$md1) {
+        margin-top: 10px;
+    }
+    @media (max-width:$md2) {
+        width: 100%;
+    }
+}
