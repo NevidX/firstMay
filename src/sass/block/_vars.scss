@@ -27,6 +27,7 @@ $AdverGhotic: AdverGhotic;
 
 .title{
 	font-family: $AdverGhotic;
+	font-size: 42px;
 }
 
 .main-title{
@@ -53,6 +54,13 @@ $AdverGhotic: AdverGhotic;
 .wrapper{
 	overflow: hidden;
 	background-color: $mainBackColor;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.main{
+	flex: 1 1 auto;
 }
 html{
 	scroll-behavior: smooth;

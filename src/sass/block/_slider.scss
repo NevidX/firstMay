@@ -34,7 +34,7 @@ $slideHeight: 100vh;
 }
 
 .slide-sub-title{
-  
+  max-width: 800px;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -74,6 +74,15 @@ $slideHeight: 100vh;
     top: 0;
     
   
+}
+.slide-btn{
+  position: absolute;
+  left:0;
+  top: 80%;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
 }
 .slide-img-overlay{
   background: #000;
